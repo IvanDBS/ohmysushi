@@ -97,7 +97,7 @@ class SushiApp < Sinatra::Base
   # Set menu button for the bot
   get '/set_menu_button' do
     token = ENV['TELEGRAM_BOT_TOKEN']
-    web_app_url = params[:url] || "https://ivandbs.github.io/ohmysushi/"
+    web_app_url = params[:url] || "https://ohmysushi.md/"
     
     # Ensure URL has trailing slash
     web_app_url += '/' unless web_app_url.end_with?('/')
@@ -163,7 +163,7 @@ class SushiApp < Sinatra::Base
       chat_id = message['chat']['id']
       text = message['text']
       token = ENV['TELEGRAM_BOT_TOKEN']
-      web_app_url = "https://ivandbs.github.io/ohmysushi/" # Replace with your hosted WebApp URL
+      web_app_url = "https://ohmysushi.md/" # Replace with your hosted WebApp URL
       
       case text
       when '/start'
