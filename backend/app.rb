@@ -160,7 +160,7 @@ class SushiApp < Sinatra::Base
       chat_id = message['chat']['id']
       text = message['text']
       token = ENV['TELEGRAM_BOT_TOKEN']
-      web_app_url = "https://ivandbs.github.io/ohmysushi" # Replace with your hosted WebApp URL
+      web_app_url = "https://ivandbs.github.io/ohmysushi/" # Replace with your hosted WebApp URL
       
       case text
       when '/start'
@@ -213,9 +213,12 @@ class SushiApp < Sinatra::Base
   # Set menu button for a specific user
   def set_menu_button_for_user(token, chat_id, web_app_url)
     begin
+      # Ensure URL has trailing slash
+      web_app_url += '/' unless web_app_url.end_with?('/')
+      
       menu_button = {
         type: "web_app",
-        text: "Меню",
+        text: "Menu",
         web_app: { url: web_app_url }
       }
       
@@ -229,7 +232,7 @@ class SushiApp < Sinatra::Base
       response = http.request(request)
       result = JSON.parse(response.body)
       
-      puts "Menu button set for chat #{chat_id}: #{result['ok']}"
+      puts "Menu button set for chat #{chat_id}: #{result['ok']} with URL #{web_app_url}"
     rescue => e
       puts "Error setting menu button: #{e.message}"
     end
@@ -238,6 +241,41 @@ class SushiApp < Sinatra::Base
   # Health check endpoint
   get '/health' do
     json({ status: 'ok', timestamp: Time.now.to_i })
+  end
+  
+  # Get current menu button configuration
+  get '/menu_button_status' do
+    token = ENV['TELEGRAM_BOT_TOKEN']
+    
+    begin
+      uri = URI.parse("https://api.telegram.org/bot#{token}/getMyCommands")
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
+      
+      request = Net::HTTP::Get.new(uri.request_uri)
+      response = http.request(request)
+      commands_result = JSON.parse(response.body)
+      
+      # Get menu button info
+      uri = URI.parse("https://api.telegram.org/bot#{token}/getChatMenuButton")
+      request = Net::HTTP::Get.new(uri.request_uri)
+      response = http.request(request)
+      button_result = JSON.parse(response.body)
+      
+      # Get webhook info
+      uri = URI.parse("https://api.telegram.org/bot#{token}/getWebhookInfo")
+      request = Net::HTTP::Get.new(uri.request_uri)
+      response = http.request(request)
+      webhook_result = JSON.parse(response.body)
+      
+      json({ 
+        commands: commands_result,
+        menu_button: button_result,
+        webhook: webhook_result
+      })
+    rescue => e
+      json({ success: false, error: e.message })
+    end
   end
   
   # Bot command setup endpoint

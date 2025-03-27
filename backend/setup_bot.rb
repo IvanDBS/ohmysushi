@@ -69,7 +69,7 @@ end
 
 def set_menu_button(token)
   puts "\nSetting up menu button..."
-  print "Enter your WebApp URL (e.g., https://ivandbs.github.io/ohmysushi/): "
+  print "Enter your WebApp URL (e.g., https://ivandbs.github.io/ohmysushi/) or press Enter for default: "
   web_app_url = gets.chomp
   
   if web_app_url.empty?
@@ -77,9 +77,12 @@ def set_menu_button(token)
     puts "Using default WebApp URL: #{web_app_url}"
   end
   
+  # Ensure URL has trailing slash
+  web_app_url += '/' unless web_app_url.end_with?('/')
+  
   menu_button = {
     type: "web_app",
-    text: "Меню",
+    text: "Menu",
     web_app: { url: web_app_url }
   }
   
@@ -94,7 +97,7 @@ def set_menu_button(token)
   result = JSON.parse(response.body)
   
   if result['ok']
-    puts "✅ Menu button set successfully with text \"#{menu_button[:text]}\""
+    puts "✅ Menu button set successfully with text \"#{menu_button[:text]}\" and URL \"#{web_app_url}\""
   else
     puts "❌ Failed to set menu button: #{result['description']}"
   end
