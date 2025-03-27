@@ -1,0 +1,494 @@
+{
+  "categories": [
+    {
+      "name": "Seturi",
+      "description": "Сеты суши",
+      "items": [
+        {
+          "name": "OTOMO SUSHI SET",
+          "description": "Большой сет суши",
+          "price": 290,
+          "image_url": "https://ohmysushi.md/images/sets/otomo.jpg",
+          "ingredients": "Набор суши"
+        },
+        {
+          "name": "Maki set",
+          "description": "Набор маки роллов",
+          "price": 300,
+          "image_url": "https://ohmysushi.md/images/sets/maki.jpg",
+          "ingredients": "Маки роллы"
+        },
+        {
+          "name": "Philadelphia set",
+          "description": "Набор с филадельфией",
+          "price": 500,
+          "image_url": "https://ohmysushi.md/images/sets/philadelphia.jpg",
+          "ingredients": "Филадельфия роллы"
+        },
+        {
+          "name": "Dragon set",
+          "description": "Набор с драконом",
+          "price": 450,
+          "image_url": "https://ohmysushi.md/images/sets/dragon.jpg",
+          "ingredients": "Драгон роллы"
+        },
+        {
+          "name": "Tempura set",
+          "description": "Набор темпура",
+          "price": 350,
+          "image_url": "https://ohmysushi.md/images/sets/tempura.jpg",
+          "ingredients": "Темпура роллы"
+        },
+        {
+          "name": "California set",
+          "description": "Набор калифорния",
+          "price": 400,
+          "image_url": "https://ohmysushi.md/images/sets/california.jpg",
+          "ingredients": "Калифорния роллы"
+        },
+        {
+          "name": "Spicy set",
+          "description": "Острый набор",
+          "price": 380,
+          "image_url": "https://ohmysushi.md/images/sets/spicy.jpg",
+          "ingredients": "Острые роллы"
+        },
+        {
+          "name": "Vegetarian set",
+          "description": "Вегетарианский набор",
+          "price": 320,
+          "image_url": "https://ohmysushi.md/images/sets/vegetarian.jpg",
+          "ingredients": "Вегетарианские роллы"
+        },
+        {
+          "name": "Salmon set",
+          "description": "Набор с лососем",
+          "price": 480,
+          "image_url": "https://ohmysushi.md/images/sets/salmon.jpg",
+          "ingredients": "Роллы с лососем"
+        },
+        {
+          "name": "Tuna set",
+          "description": "Набор с тунцом",
+          "price": 460,
+          "image_url": "https://ohmysushi.md/images/sets/tuna.jpg",
+          "ingredients": "Роллы с тунцом"
+        },
+        {
+          "name": "Mix set",
+          "description": "Микс набор",
+          "price": 420,
+          "image_url": "https://ohmysushi.md/images/sets/mix.jpg",
+          "ingredients": "Ассорти роллов"
+        },
+        {
+          "name": "Party set",
+          "description": "Праздничный набор",
+          "price": 550,
+          "image_url": "https://ohmysushi.md/images/sets/party.jpg",
+          "ingredients": "Праздничные роллы"
+        },
+        {
+          "name": "Family set",
+          "description": "Семейный набор",
+          "price": 600,
+          "image_url": "https://ohmysushi.md/images/sets/family.jpg",
+          "ingredients": "Семейные роллы"
+        },
+        {
+          "name": "Hot set",
+          "description": "Горячий набор",
+          "price": 420,
+          "image_url": "https://ohmysushi.md/images/sets/hot.jpg",
+          "ingredients": "Горячие роллы"
+        },
+        {
+          "name": "Unagi set",
+          "description": "Набор с угрем",
+          "price": 520,
+          "image_url": "https://ohmysushi.md/images/sets/unagi.jpg",
+          "ingredients": "Роллы с угрем"
+        },
+        {
+          "name": "Combo set",
+          "description": "Комбо набор",
+          "price": 480,
+          "image_url": "https://ohmysushi.md/images/sets/combo.jpg",
+          "ingredients": "Комбо роллы"
+        },
+        {
+          "name": "Premium set",
+          "description": "Премиум набор",
+          "price": 650,
+          "image_url": "https://ohmysushi.md/images/sets/premium.jpg",
+          "ingredients": "Премиум роллы"
+        },
+        {
+          "name": "Special set",
+          "description": "Специальный набор",
+          "price": 580,
+          "image_url": "https://ohmysushi.md/images/sets/special.jpg",
+          "ingredients": "Специальные роллы"
+        }
+      ]
+    },
+    {
+      "name": "Sushi",
+      "description": "Суши",
+      "items": [
+        {
+          "name": "Hadaka Sake",
+          "description": "Суши с лососем",
+          "price": 145,
+          "image_url": "https://ohmysushi.md/images/sushi/hadaka-sake.jpg",
+          "ingredients": "Рис, лосось"
+        },
+        {
+          "name": "Hadaka Unagi",
+          "description": "Суши с угрем",
+          "price": 145,
+          "image_url": "https://ohmysushi.md/images/sushi/hadaka-unagi.jpg",
+          "ingredients": "Рис, угорь, соус унаги"
+        },
+        {
+          "name": "Hadaka Maguro",
+          "description": "Суши с тунцом",
+          "price": 140,
+          "image_url": "https://ohmysushi.md/images/sushi/hadaka-maguro.jpg",
+          "ingredients": "Рис, тунец"
+        },
+        {
+          "name": "Hadaka Ebi",
+          "description": "Суши с креветкой",
+          "price": 135,
+          "image_url": "https://ohmysushi.md/images/sushi/hadaka-ebi.jpg",
+          "ingredients": "Рис, креветка"
+        },
+        {
+          "name": "Hadaka Tako",
+          "description": "Суши с осьминогом",
+          "price": 150,
+          "image_url": "https://ohmysushi.md/images/sushi/hadaka-tako.jpg",
+          "ingredients": "Рис, осьминог"
+        },
+        {
+          "name": "Hadaka Hotate",
+          "description": "Суши с гребешком",
+          "price": 155,
+          "image_url": "https://ohmysushi.md/images/sushi/hadaka-hotate.jpg",
+          "ingredients": "Рис, гребешок"
+        },
+        {
+          "name": "Hadaka Tamago",
+          "description": "Суши с омлетом",
+          "price": 120,
+          "image_url": "https://ohmysushi.md/images/sushi/hadaka-tamago.jpg",
+          "ingredients": "Рис, омлет тамаго"
+        },
+        {
+          "name": "Hadaka Inari",
+          "description": "Суши с тофу",
+          "price": 125,
+          "image_url": "https://ohmysushi.md/images/sushi/hadaka-inari.jpg",
+          "ingredients": "Рис, жареный тофу"
+        },
+        {
+          "name": "Hadaka Ikura",
+          "description": "Суши с икрой лосося",
+          "price": 160,
+          "image_url": "https://ohmysushi.md/images/sushi/hadaka-ikura.jpg",
+          "ingredients": "Рис, икра лосося"
+        },
+        {
+          "name": "Hadaka Tobiko",
+          "description": "Суши с икрой летучей рыбы",
+          "price": 140,
+          "image_url": "https://ohmysushi.md/images/sushi/hadaka-tobiko.jpg",
+          "ingredients": "Рис, икра тобико"
+        }
+      ]
+    },
+    {
+      "name": "Maki-Nigiri-Guncan",
+      "description": "Маки, Нигири и Гункан",
+      "items": [
+        {
+          "name": "Nigiri Sake",
+          "description": "Нигири с лососем",
+          "price": 45,
+          "image_url": "https://ohmysushi.md/images/nigiri/sake.jpg",
+          "ingredients": "Рис, лосось"
+        },
+        {
+          "name": "Nigiri Unagi",
+          "description": "Нигири с угрем",
+          "price": 55,
+          "image_url": "https://ohmysushi.md/images/nigiri/unagi.jpg",
+          "ingredients": "Рис, угорь, соус унаги"
+        },
+        {
+          "name": "Nigiri Maguro",
+          "description": "Нигири с тунцом",
+          "price": 50,
+          "image_url": "https://ohmysushi.md/images/nigiri/maguro.jpg",
+          "ingredients": "Рис, тунец"
+        },
+        {
+          "name": "Nigiri Ebi",
+          "description": "Нигири с креветкой",
+          "price": 45,
+          "image_url": "https://ohmysushi.md/images/nigiri/ebi.jpg",
+          "ingredients": "Рис, креветка"
+        },
+        {
+          "name": "Nigiri Tako",
+          "description": "Нигири с осьминогом",
+          "price": 60,
+          "image_url": "https://ohmysushi.md/images/nigiri/tako.jpg",
+          "ingredients": "Рис, осьминог"
+        },
+        {
+          "name": "Maki Sake",
+          "description": "Маки с лососем",
+          "price": 140,
+          "image_url": "https://ohmysushi.md/images/maki/sake.jpg",
+          "ingredients": "Рис, нори, лосось"
+        },
+        {
+          "name": "Maki Tekka",
+          "description": "Маки с тунцом",
+          "price": 135,
+          "image_url": "https://ohmysushi.md/images/maki/tekka.jpg",
+          "ingredients": "Рис, нори, тунец"
+        },
+        {
+          "name": "Maki Kappa",
+          "description": "Маки с огурцом",
+          "price": 110,
+          "image_url": "https://ohmysushi.md/images/maki/kappa.jpg",
+          "ingredients": "Рис, нори, огурец"
+        },
+        {
+          "name": "Maki Avocado",
+          "description": "Маки с авокадо",
+          "price": 120,
+          "image_url": "https://ohmysushi.md/images/maki/avocado.jpg",
+          "ingredients": "Рис, нори, авокадо"
+        },
+        {
+          "name": "Gunkan Ikura",
+          "description": "Гункан с икрой лосося",
+          "price": 160,
+          "image_url": "https://ohmysushi.md/images/gunkan/ikura.jpg",
+          "ingredients": "Рис, нори, икра лосося"
+        }
+      ]
+    },
+    {
+      "name": "Poke bowl",
+      "description": "Поке боулы",
+      "items": [
+        {
+          "name": "Poke Sake",
+          "description": "Поке с лососем",
+          "price": 145,
+          "image_url": "https://ohmysushi.md/images/poke/sake.jpg",
+          "ingredients": "Рис, лосось, авокадо, огурец, соус"
+        },
+        {
+          "name": "Poke Vegetarian",
+          "description": "Вегетарианский поке",
+          "price": 125,
+          "image_url": "https://ohmysushi.md/images/poke/vege.jpg",
+          "ingredients": "Рис, авокадо, огурец, водоросли, соус"
+        },
+        {
+          "name": "Poke Maguro",
+          "description": "Поке с тунцом",
+          "price": 140,
+          "image_url": "https://ohmysushi.md/images/poke/maguro.jpg",
+          "ingredients": "Рис, тунец, авокадо, огурец, соус"
+        },
+        {
+          "name": "Poke Mix",
+          "description": "Поке микс",
+          "price": 160,
+          "image_url": "https://ohmysushi.md/images/poke/mix.jpg",
+          "ingredients": "Рис, лосось, тунец, авокадо, огурец, соус"
+        },
+        {
+          "name": "Poke Spicy",
+          "description": "Острый поке",
+          "price": 150,
+          "image_url": "https://ohmysushi.md/images/poke/spicy.jpg",
+          "ingredients": "Рис, лосось, острый соус, авокадо, огурец"
+        },
+        {
+          "name": "Poke Unagi",
+          "description": "Поке с угрем",
+          "price": 165,
+          "image_url": "https://ohmysushi.md/images/poke/unagi.jpg",
+          "ingredients": "Рис, угорь, авокадо, огурец, соус унаги"
+        },
+        {
+          "name": "Poke Ebi",
+          "description": "Поке с креветкой",
+          "price": 155,
+          "image_url": "https://ohmysushi.md/images/poke/ebi.jpg",
+          "ingredients": "Рис, креветка, авокадо, огурец, соус"
+        },
+        {
+          "name": "Poke Tofu",
+          "description": "Поке с тофу",
+          "price": 130,
+          "image_url": "https://ohmysushi.md/images/poke/tofu.jpg",
+          "ingredients": "Рис, тофу, авокадо, огурец, соус"
+        }
+      ]
+    },
+    {
+      "name": "Bauturi",
+      "description": "Напитки",
+      "items": [
+        {
+          "name": "Banana Smoothie",
+          "description": "Банановый смузи",
+          "price": 40,
+          "image_url": "https://ohmysushi.md/images/drinks/banana.jpg",
+          "ingredients": "Банан, молоко, мед"
+        },
+        {
+          "name": "Green Detox Smoothie",
+          "description": "Детокс смузи",
+          "price": 38,
+          "image_url": "https://ohmysushi.md/images/drinks/detox.jpg",
+          "ingredients": "Шпинат, яблоко, огурец"
+        },
+        {
+          "name": "Berry Mix",
+          "description": "Ягодный микс",
+          "price": 42,
+          "image_url": "https://ohmysushi.md/images/drinks/berry.jpg",
+          "ingredients": "Клубника, малина, черника, йогурт"
+        },
+        {
+          "name": "Mango Lassi",
+          "description": "Манго ласси",
+          "price": 45,
+          "image_url": "https://ohmysushi.md/images/drinks/mango.jpg",
+          "ingredients": "Манго, йогурт, кардамон"
+        },
+        {
+          "name": "Fresh Orange",
+          "description": "Свежевыжатый апельсиновый сок",
+          "price": 35,
+          "image_url": "https://ohmysushi.md/images/drinks/orange.jpg",
+          "ingredients": "Апельсин"
+        },
+        {
+          "name": "Matcha Latte",
+          "description": "Матча латте",
+          "price": 48,
+          "image_url": "https://ohmysushi.md/images/drinks/matcha.jpg",
+          "ingredients": "Зеленый чай матча, молоко"
+        },
+        {
+          "name": "Ginger Tea",
+          "description": "Имбирный чай",
+          "price": 35,
+          "image_url": "https://ohmysushi.md/images/drinks/ginger.jpg",
+          "ingredients": "Имбирь, лимон, мед"
+        },
+        {
+          "name": "Fresh Grapefruit",
+          "description": "Свежевыжатый грейпфрутовый сок",
+          "price": 38,
+          "image_url": "https://ohmysushi.md/images/drinks/grapefruit.jpg",
+          "ingredients": "Грейпфрут"
+        }
+      ]
+    },
+    {
+      "name": "Supe",
+      "description": "Супы",
+      "items": [
+        {
+          "name": "Miso Vegan",
+          "description": "Традиционный японский суп с тофу и грибами шиитаке - 400g",
+          "price": 100,
+          "image_url": "https://ohmysushi.md/wp-content/uploads/2024/09/Miso-Vegan-247x247.jpeg",
+          "ingredients": "Tofu, vacame, susan, shitake, bulion miso"
+        },
+        {
+          "name": "Miso Classic",
+          "description": "Классический мисо суп с лососем - 400g",
+          "price": 110,
+          "image_url": "https://ohmysushi.md/images/soups/miso-classic.jpg",
+          "ingredients": "Бульон мисо, лосось, водоросли вакаме, зеленый лук"
+        },
+        {
+          "name": "Tom Yum",
+          "description": "Острый тайский суп с креветками - 400g",
+          "price": 120,
+          "image_url": "https://ohmysushi.md/images/soups/tom-yum.jpg",
+          "ingredients": "Креветки, грибы, лемонграсс, галангал, чили"
+        },
+        {
+          "name": "Ramen",
+          "description": "Японский рамен с курицей - 400g",
+          "price": 115,
+          "image_url": "https://ohmysushi.md/images/soups/ramen.jpg",
+          "ingredients": "Лапша, куриный бульон, куриное филе, яйцо, зеленый лук"
+        },
+        {
+          "name": "Udon",
+          "description": "Суп с лапшой удон и говядиной - 400g",
+          "price": 125,
+          "image_url": "https://ohmysushi.md/images/soups/udon.jpg",
+          "ingredients": "Лапша удон, говядина, грибы шиитаке, зеленый лук"
+        },
+        {
+          "name": "Clear Soup",
+          "description": "Прозрачный суп с овощами - 400g",
+          "price": 90,
+          "image_url": "https://ohmysushi.md/images/soups/clear.jpg",
+          "ingredients": "Овощной бульон, морковь, сельдерей, грибы"
+        }
+      ]
+    },
+    {
+      "name": "Dessert",
+      "description": "Десерты",
+      "items": [
+        {
+          "name": "Classic Cheesecake",
+          "description": "Классический чизкейк",
+          "price": 90,
+          "image_url": "https://ohmysushi.md/wp-content/uploads/2024/09/classic-cheesecake.jpg",
+          "ingredients": ""
+        },
+        {
+          "name": "Mousse Cheesecake",
+          "description": "Муссовый чизкейк",
+          "price": 85,
+          "image_url": "https://ohmysushi.md/wp-content/uploads/2024/09/mousse-cheesecake.jpg",
+          "ingredients": ""
+        },
+        {
+          "name": "Napoleon",
+          "description": "Торт Наполеон",
+          "price": 85,
+          "image_url": "https://ohmysushi.md/wp-content/uploads/2024/09/napoleon.jpg",
+          "ingredients": ""
+        },
+        {
+          "name": "Tiramisu",
+          "description": "Тирамису",
+          "price": 80,
+          "image_url": "https://ohmysushi.md/wp-content/uploads/2024/09/tiramisu.jpg",
+          "ingredients": ""
+        }
+      ]
+    }
+  ]
+} 
