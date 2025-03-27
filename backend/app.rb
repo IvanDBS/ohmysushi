@@ -4,6 +4,7 @@ require 'json'
 require 'dotenv/load'
 require 'telegram/bot'
 require 'rack/cors'
+require 'net/http'
 
 class SushiApp < Sinatra::Base
   configure do
@@ -92,6 +93,34 @@ class SushiApp < Sinatra::Base
       json({ success: false, error: e.message })
     end
   end
+
+  # Set menu button for the bot
+  get '/set_menu_button' do
+    token = ENV['TELEGRAM_BOT_TOKEN']
+    web_app_url = params[:url] || "https://ivandbs.github.io/ohmysushi/"
+    
+    begin
+      menu_button = {
+        type: "web_app",
+        text: "Меню",
+        web_app: { url: web_app_url }
+      }
+      
+      uri = URI.parse("https://api.telegram.org/bot#{token}/setChatMenuButton")
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
+      
+      request = Net::HTTP::Post.new(uri.request_uri, 'Content-Type' => 'application/json')
+      request.body = { menu_button: menu_button }.to_json
+      
+      response = http.request(request)
+      result = JSON.parse(response.body)
+      
+      json({ success: result['ok'], description: result['description'], menu_button: menu_button })
+    rescue => e
+      json({ success: false, error: e.message })
+    end
+  end
   
   # Method to create main menu keyboard with WebApp button
   def main_menu_keyboard(web_app_url)
@@ -135,9 +164,12 @@ class SushiApp < Sinatra::Base
       
       case text
       when '/start'
+        # Set the menu button for this user
+        set_menu_button_for_user(token, chat_id, web_app_url)
+        
         Telegram::Bot::Client.new(token).api.send_message(
           chat_id: chat_id,
-          text: "Welcome to Oh My Sushi! 🍣\nUse the menu below to order delicious sushi delivered to your door.",
+          text: "Welcome to Oh My Sushi! 🍣\nUse the menu below or the Menu button to order delicious sushi delivered to your door.",
           reply_markup: main_menu_keyboard(web_app_url)
         )
       when '/menu'
@@ -176,6 +208,31 @@ class SushiApp < Sinatra::Base
     
     status 200
     json({ ok: true })
+  end
+  
+  # Set menu button for a specific user
+  def set_menu_button_for_user(token, chat_id, web_app_url)
+    begin
+      menu_button = {
+        type: "web_app",
+        text: "Меню",
+        web_app: { url: web_app_url }
+      }
+      
+      uri = URI.parse("https://api.telegram.org/bot#{token}/setChatMenuButton")
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
+      
+      request = Net::HTTP::Post.new(uri.request_uri, 'Content-Type' => 'application/json')
+      request.body = { chat_id: chat_id, menu_button: menu_button }.to_json
+      
+      response = http.request(request)
+      result = JSON.parse(response.body)
+      
+      puts "Menu button set for chat #{chat_id}: #{result['ok']}"
+    rescue => e
+      puts "Error setting menu button: #{e.message}"
+    end
   end
   
   # Health check endpoint
