@@ -99,6 +99,9 @@ class SushiApp < Sinatra::Base
     token = ENV['TELEGRAM_BOT_TOKEN']
     web_app_url = params[:url] || "https://ivandbs.github.io/ohmysushi/"
     
+    # Ensure URL has trailing slash
+    web_app_url += '/' unless web_app_url.end_with?('/')
+    
     begin
       menu_button = {
         type: "web_app",
@@ -218,7 +221,7 @@ class SushiApp < Sinatra::Base
       
       menu_button = {
         type: "web_app",
-        text: "Menu",
+        text: "Меню",
         web_app: { url: web_app_url }
       }
       

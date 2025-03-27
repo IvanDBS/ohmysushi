@@ -82,7 +82,7 @@ def set_menu_button(token)
   
   menu_button = {
     type: "web_app",
-    text: "Menu",
+    text: "Меню",
     web_app: { url: web_app_url }
   }
   
