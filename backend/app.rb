@@ -79,6 +79,39 @@ class SushiApp < Sinatra::Base
       puts "Error sending message to Telegram: #{e.message}"
     end
   end
+
+  # Set webhook for the bot
+  get '/set_webhook' do
+    token = ENV['TELEGRAM_BOT_TOKEN']
+    webhook_url = params[:url] || "#{request.base_url}/bot/webhook"
+    
+    begin
+      response = Telegram::Bot::Client.new(token).api.set_webhook(url: webhook_url)
+      json({ success: response['ok'], description: response['description'], webhook_url: webhook_url })
+    rescue => e
+      json({ success: false, error: e.message })
+    end
+  end
+  
+  # Method to create main menu keyboard with WebApp button
+  def main_menu_keyboard(web_app_url)
+    kb = {
+      keyboard: [
+        [
+          {
+            text: "🍣 Order Sushi",
+            web_app: { url: web_app_url }
+          }
+        ],
+        [
+          { text: "📱 Contact Us" },
+          { text: "ℹ️ About Us" }
+        ]
+      ],
+      resize_keyboard: true
+    }
+    kb.to_json
+  end
   
   # Telegram Bot webhook endpoint
   post '/bot/webhook' do
@@ -92,6 +125,55 @@ class SushiApp < Sinatra::Base
     update = JSON.parse(request_body)
     puts "Received update: #{update.inspect}"
     
+    # Process the update
+    if update['message']
+      message = update['message']
+      chat_id = message['chat']['id']
+      text = message['text']
+      token = ENV['TELEGRAM_BOT_TOKEN']
+      web_app_url = "https://ivandbs.github.io/ohmysushi" # Replace with your hosted WebApp URL
+      
+      case text
+      when '/start'
+        Telegram::Bot::Client.new(token).api.send_message(
+          chat_id: chat_id,
+          text: "Welcome to Oh My Sushi! 🍣\nUse the menu below to order delicious sushi delivered to your door.",
+          reply_markup: main_menu_keyboard(web_app_url)
+        )
+      when '/menu'
+        Telegram::Bot::Client.new(token).api.send_message(
+          chat_id: chat_id,
+          text: "Tap the button below to browse our menu:",
+          reply_markup: {
+            inline_keyboard: [
+              [
+                {
+                  text: "🍣 View Menu",
+                  web_app: { url: web_app_url }
+                }
+              ]
+            ]
+          }.to_json
+        )
+      when '📱 Contact Us'
+        Telegram::Bot::Client.new(token).api.send_message(
+          chat_id: chat_id,
+          text: "📞 Phone: +373 123 456 789\n📧 Email: info@ohmysushi.md\n⏰ Working hours: 10:00 - 22:00"
+        )
+      when 'ℹ️ About Us'
+        Telegram::Bot::Client.new(token).api.send_message(
+          chat_id: chat_id,
+          text: "Oh My Sushi is a premier sushi restaurant offering the freshest and most delicious Japanese cuisine in Moldova. We source only the finest ingredients to create authentic and innovative sushi dishes."
+        )
+      else
+        Telegram::Bot::Client.new(token).api.send_message(
+          chat_id: chat_id,
+          text: "I'm sorry, I didn't understand that command. Please use the menu below:",
+          reply_markup: main_menu_keyboard(web_app_url)
+        )
+      end
+    end
+    
     status 200
     json({ ok: true })
   end
@@ -99,6 +181,24 @@ class SushiApp < Sinatra::Base
   # Health check endpoint
   get '/health' do
     json({ status: 'ok', timestamp: Time.now.to_i })
+  end
+  
+  # Bot command setup endpoint
+  get '/setup_commands' do
+    token = ENV['TELEGRAM_BOT_TOKEN']
+    
+    commands = [
+      { command: 'start', description: 'Start the bot' },
+      { command: 'menu', description: 'Show sushi menu' },
+      { command: 'help', description: 'Get help' }
+    ]
+    
+    begin
+      response = Telegram::Bot::Client.new(token).api.set_my_commands(commands: commands)
+      json({ success: response['ok'], description: response['description'] })
+    rescue => e
+      json({ success: false, error: e.message })
+    end
   end
   
   # Serve frontend for development purposes

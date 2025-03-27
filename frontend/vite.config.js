@@ -17,6 +17,7 @@ export default defineConfig({
       },
     },
   },
+  base: '/ohmysushi/',
   build: {
     outDir: '../backend/public',
   },
