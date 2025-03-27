@@ -30,6 +30,9 @@
 /frontend/yarn-debug.log*
 /frontend/yarn-error.log*
 
+# Project specific
+/old files/
+
 # Editor directories and files
 .idea
 .vscode
