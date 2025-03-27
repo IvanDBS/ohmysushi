@@ -168,7 +168,7 @@ class SushiApp < Sinatra::Base
       case text
       when '/start'
         # Set the menu button for this user
-        set_menu_button_for_user(token, chat_id, web_app_url)
+        set_menu_button_for_user(chat_id)
         
         Telegram::Bot::Client.new(token).api.send_message(
           chat_id: chat_id,
@@ -214,30 +214,42 @@ class SushiApp < Sinatra::Base
   end
   
   # Set menu button for a specific user
-  def set_menu_button_for_user(token, chat_id, web_app_url)
+  def set_menu_button_for_user(chat_id)
+    # Make sure we have a valid token
+    return { success: false, error: 'Bot token not configured' } unless ENV['TELEGRAM_BOT_TOKEN']
+
+    # Use the real website instead of GitHub Pages
+    web_app_url = "https://ohmysushi.md/"
+    
+    # Ensure URL has trailing slash
+    web_app_url += '/' unless web_app_url.end_with?('/')
+    
+    menu_button = {
+      type: "web_app",
+      text: "Меню",
+      web_app: { url: web_app_url }
+    }
+    
+    # Set up the HTTP request to the Telegram API
+    uri = URI.parse("https://api.telegram.org/bot#{ENV['TELEGRAM_BOT_TOKEN']}/setChatMenuButton")
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    
+    request = Net::HTTP::Post.new(uri.request_uri, 'Content-Type' => 'application/json')
+    request.body = { chat_id: chat_id, menu_button: menu_button }.to_json
+    
+    # Make the request and parse the response
     begin
-      # Ensure URL has trailing slash
-      web_app_url += '/' unless web_app_url.end_with?('/')
-      
-      menu_button = {
-        type: "web_app",
-        text: "Меню",
-        web_app: { url: web_app_url }
-      }
-      
-      uri = URI.parse("https://api.telegram.org/bot#{token}/setChatMenuButton")
-      http = Net::HTTP.new(uri.host, uri.port)
-      http.use_ssl = true
-      
-      request = Net::HTTP::Post.new(uri.request_uri, 'Content-Type' => 'application/json')
-      request.body = { chat_id: chat_id, menu_button: menu_button }.to_json
-      
       response = http.request(request)
       result = JSON.parse(response.body)
       
-      puts "Menu button set for chat #{chat_id}: #{result['ok']} with URL #{web_app_url}"
+      if result['ok']
+        { success: true, message: "Menu button set with URL: #{web_app_url}" }
+      else
+        { success: false, error: result['description'] }
+      end
     rescue => e
-      puts "Error setting menu button: #{e.message}"
+      { success: false, error: e.message }
     end
   end
   

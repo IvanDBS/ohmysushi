@@ -69,13 +69,10 @@ end
 
 def set_menu_button(token)
   puts "\nSetting up menu button..."
-  print "Enter your WebApp URL (e.g., https://ivandbs.github.io/ohmysushi/) or press Enter for default: "
-  web_app_url = gets.chomp
   
-  if web_app_url.empty?
-    web_app_url = "https://ivandbs.github.io/ohmysushi/"
-    puts "Using default WebApp URL: #{web_app_url}"
-  end
+  # Use the real website instead of asking for input
+  web_app_url = "https://ohmysushi.md/"
+  puts "Using existing website URL: #{web_app_url}"
   
   # Ensure URL has trailing slash
   web_app_url += '/' unless web_app_url.end_with?('/')
